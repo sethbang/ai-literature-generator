@@ -2,20 +2,18 @@
 
 const express = require('express');
 const cors = require('cors');
+const sequelize = require('./config/config'); // Sequelize instance
 const app = express();
-const sequelize = require('./config/config');
-const storyRoutes = require('./routes/story');
-const errorHandler = require('./middleware/errorHandler');
-
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
 
 // Routes
+const storyRoutes = require('./routes/story');
 app.use('/api/stories', storyRoutes);
 
-// Root route
+// Root endpoint
 app.get('/', (req, res) => {
   res.send('Server is running');
 });
@@ -27,7 +25,4 @@ sequelize.sync().then(() => {
   });
 });
 
-
-app.use(errorHandler);
-
-module.exports = app; // For testing purposes
+module.exports = app; // Export app for testing purposes

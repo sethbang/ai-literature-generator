@@ -24,3 +24,29 @@ yarn-error.log*
 
 node_modules
 build
+
+# .gitignore
+
+# Node modules
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# dotenv environment variables file
+.env
+
+# Database files
+*.sqlite3
+database.sqlite3
+
+# MacOS
+.DS_Store
+
+# Others
+.idea/
+.vscode/
